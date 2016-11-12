@@ -55,9 +55,12 @@ int main() {
   	pointToPoint.SetChannelAttribute ("Delay", StringValue ("2ms"));
 
   	// set net devices
-  	NetDeviceContainer P2pDevices;
-  	// TODO MUDAR AQUI
-  	P2pDevices = pointToPoint.Install (all);
+  	NetDeviceContainer P2pDevices1;
+  	NetDeviceContainer P2pDevices2;
+  	NetDeviceContainer P2pDevices3;
+  	P2pDevices1 = pointToPoint.Install(firstPair);
+  	P2pDevices2 = pointToPoint.Install(secondPair);
+  	P2pDevices3 = pointToPoint.Install(thirdPair);
 
   	// set internet stack
   	InternetStackHelper stack;
@@ -69,7 +72,17 @@ int main() {
   	Ipv4AddressHelper address;
   	address.SetBase ("10.1.1.0", "255.255.255.0");
   	Ipv4InterfaceContainer p2pInterfaces;
-  	p2pInterfaces = address.Assign(P2pDevices);
+  	p2pInterfaces = address.Assign(P2pDevices1);
+
+  	Ipv4AddressHelper address2;
+  	address2.SetBase ("10.1.2.0", "255.255.255.0");
+  	Ipv4InterfaceContainer p2pInterfaces2;
+  	p2pInterfaces2 = address2.Assign(P2pDevices2);
+
+  	Ipv4AddressHelper address3;
+  	address3.SetBase ("10.1.3.0", "255.255.255.0");
+  	Ipv4InterfaceContainer p2pInterfaces3;
+  	p2pInterfaces3 = address3.Assign(P2pDevices3);
 
   	// server settings
   	UdpEchoServerHelper echoServer (9);
