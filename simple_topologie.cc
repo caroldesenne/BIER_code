@@ -10,7 +10,7 @@
 
 		 --- n0 ---
 		|    |	  |
-		n1	 n2   n3
+		n1   n2   n3
 
 */
 
@@ -45,9 +45,9 @@ int main() {
   	thirdPair.Create(1);
   	clients.Add(firstPair.Get(1));
   	clients.Add(secondPair.Get(1));
-	clients.Add(thirdPair.Get(1));
-	all.Add(firstPair.Get(0));
-	all.Add(clients);
+	  clients.Add(thirdPair.Get(1));
+	  all.Add(firstPair.Get(0));
+	  all.Add(clients);
 
   	// set point-to-point connections
   	PointToPointHelper pointToPoint;
